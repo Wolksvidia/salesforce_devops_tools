@@ -1,0 +1,87 @@
+M	src/aura/ArticleListHOC/ArticleListHOCController.js
+M	src/aura/ArticleListHOC/ArticleListHOCHelper.js
+M	src/aura/ArticlesRelatedHOC/ArticlesRelatedHOCController.js
+M	src/aura/ArticlesRelatedHOC/ArticlesRelatedHOCHelper.js
+M	src/aura/AuthorContentRecordEdit/AuthorContentRecordEdit.cmp
+M	src/aura/AuthorContentRecordEdit/AuthorContentRecordEdit.design
+M	src/aura/AuthorContentRecordEdit/AuthorContentRecordEditHelper.js
+M	src/aura/AuthorDetailHOC/AuthorDetailHOC.cmp
+M	src/aura/AuthorDetailHOC/AuthorDetailHOCHelper.js
+M	src/aura/BannerHOC/BannerHOCHelper.js
+M	src/aura/BlockHOC/BlockHOCHelper.js
+M	src/aura/BrandContentRecordEdit/BrandContentRecordEdit.cmp
+M	src/aura/BrandContentRecordEdit/BrandContentRecordEdit.design
+M	src/aura/BrandContentRecordEdit/BrandContentRecordEditHelper.js
+M	src/aura/CategoryContentRecordEdit/CategoryContentRecordEdit.cmp
+M	src/aura/CategoryContentRecordEdit/CategoryContentRecordEdit.design
+M	src/aura/CategoryContentRecordEdit/CategoryContentRecordEditHelper.js
+M	src/aura/CategoryListHOC/CategoryListHOCController.js
+M	src/aura/CategoryListHOC/CategoryListHOCHelper.js
+M	src/aura/EventListHOC/EventListHOCController.js
+M	src/aura/EventListHOC/EventListHOCHelper.js
+M	src/aura/EventsRelatedHOC/EventsRelatedHOC.cmp
+M	src/aura/EventsRelatedHOC/EventsRelatedHOCController.js
+M	src/aura/EventsRelatedHOC/EventsRelatedHOCHelper.js
+M	src/aura/MenuItem/MenuItemHelper.js
+M	src/classes/ArticleControllersTest.cls
+M	src/classes/ArticleListController.cls
+M	src/classes/BrandTriggers.cls
+M	src/classes/BrandTriggersTest.cls
+M	src/classes/CMSUserSettingsUtils.cls
+M	src/classes/CategoryListController.cls
+M	src/classes/CategoryListControllerTest.cls
+M	src/classes/CategoryTriggers.cls
+M	src/classes/CategoryTriggersTest.cls
+M	src/classes/ComponentManager.cls
+M	src/classes/ComponentManagerTest.cls
+M	src/classes/ContentActionsController.cls
+M	src/classes/ContentManager.cls
+M	src/classes/ContentUtils.cls
+M	src/classes/ContentUtilsTest.cls
+M	src/classes/EventControllersTest.cls
+M	src/classes/EventListController.cls
+M	src/classes/EventsRelatedController.cls
+M	src/classes/GeneralUtils.cls
+M	src/classes/GeneralUtilsTest.cls
+M	src/classes/LanguageSelectorControllerTest.cls
+M	src/classes/MockupFactory.cls
+M	src/classes/ObjectComponentWrapper.cls
+M	src/classes/ObjectContentWrapper.cls
+M	src/classes/SearchController.cls
+M	src/classes/SearchControllerTest.cls
+D	src/classes/TagSelectorController.cls
+D	src/classes/TagSelectorController.cls-meta.xml
+D	src/classes/TagSelectorControllerTest.cls
+D	src/classes/TagSelectorControllerTest.cls-meta.xml
+D	src/classes/TagUtils.cls
+D	src/classes/TagUtils.cls-meta.xml
+D	src/classes/TagUtilsTest.cls
+D	src/classes/TagUtilsTest.cls-meta.xml
+M	src/classes/TranslationUtils.cls
+D	src/customPermissions/AuthorListViewFrame.customPermission
+D	src/customPermissions/BrandDetailViewFrame.customPermission
+D	src/customPermissions/BrandListEditFrame.customPermission
+D	src/customPermissions/BrandListViewFrame.customPermission
+M	src/flexipages/Brand_Record_Page.flexipage
+D	src/flexipages/Component_Author_List_Page.flexipage
+D	src/flexipages/Component_Brand_List_Record_Page.flexipage
+M	src/flexipages/Content_Author_Record_Page.flexipage
+M	src/flexipages/Content_Brand_Record_Page.flexipage
+M	src/flexipages/Content_Category_Record_Page.flexipage
+M	src/labels/CustomLabels.labels
+M	src/layouts/Category__c-Category Layout.layout
+D	src/layouts/Component__c-Component%3A Author List - Page Layout.layout
+D	src/layouts/Component__c-Component%3A Brand Detail - Page Layout.layout
+D	src/layouts/Component__c-Component%3A Brand List - Page Layout.layout
+M	src/layouts/Component__c-Component%3A Category List - Page Layout.layout
+D	src/layouts/Component__c-Component%3A Recipe List - Page Layout.layout
+D	src/layouts/Content__c-Content%3A Recipe - Page Layout.layout
+M	src/layouts/SearchSetting__c-Search Setting Layout.layout
+M	src/lwc/shareButton/shareButton.css
+M	src/lwc/shareButton/shareButton.less
+M	src/objects/Category__c.object
+M	src/objects/Component__c.object
+M	src/objects/Content__c.object
+M	src/objects/SearchSetting__c.object
+M	src/objects/Tag__c.object
+M	src/objects/Translation__c.object
