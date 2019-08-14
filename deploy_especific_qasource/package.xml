@@ -30,7 +30,6 @@
         <members>dbaListElementFilter</members>
         <members>dbaListElement</members>
         <members>dbaHorizontalCard</members>
-        <members>dbaHorizontalCardCausa</members>
         <members>dbaByExpertMix</members>
         <members>dbaUtils</members>
         <members>dbaCategoryList</members>
