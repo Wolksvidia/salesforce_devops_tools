@@ -26,7 +26,7 @@ def make_dirtree(fpath, basedir, spliter):
 def build_diff_files(inputdir,outputdir,differ='master',inputfile='diff.txt'):
     #seteo del spliter dependiendo del SO
     cmd = 'git diff --name-status ' + differ + ' >> ' + inputfile
-    #out = os.system(cmd)
+    out = os.system(cmd)
     spliter = '\\'
     ldiff = []
     lfront = []
@@ -39,7 +39,7 @@ def build_diff_files(inputdir,outputdir,differ='master',inputfile='diff.txt'):
                 if inputdir in fpath:
                     if '-meta.xml' not in fpath:
                         if line[:1] != 'D':
-                            if ('.cls' in fpath) | ('.trigger' in fpath) | ('.page' in fpath): 
+                            if ('.cls' in fpath) | ('.trigger' in fpath) | ('.page' in fpath) | ('.resource' in fpath): 
                                 ldiff.append(fpath)
                                 ldiff.append(fpath+'-meta.xml')
                             elif ('aura'+spliter in fpath) | ('lwc'+spliter in fpath):
