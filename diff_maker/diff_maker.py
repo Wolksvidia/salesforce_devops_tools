@@ -23,7 +23,7 @@ def make_dirtree(fpath, basedir, spliter):
         os.mkdir(dtree)
 
 
-def build_diff_files(inputdir,outputdir,differ='master',inputfile='diff.txt'):
+def build_diff_files(inputdir,outputdir,differ='origin/master',inputfile='diff.txt'):
     #seteo del spliter dependiendo del SO
     cmd = 'git diff --name-status ' + differ + ' >> ' + inputfile
     out = os.system(cmd)
