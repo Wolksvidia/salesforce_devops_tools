@@ -9,6 +9,9 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>DBA_RichTextShower</members>
+        <members>DBA_RichTextShowerEvent</members>
+        <members>DBA_IngredientsAndMethod</members>
         <members>DBA_TakeQuizHOC</members>
         <members>DBA_VerticalCard</members>
         <members>DBA_ByExpertMixHOC</members>

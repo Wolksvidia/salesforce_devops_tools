@@ -1,5 +1,6 @@
-# Parameter help description
-Param([string] $release)
+#This script is for closing the release flow in git repo
+#-release is a name of the tag related to relese
+$release = Read-Host -Prompt "Input the name of the tag release: " 
 
 $location = Get-Location
 Set-Location -path 'C:\Users\Emiliano Fama\Documents\Repositorios\bitbucket\communities-accelerator'

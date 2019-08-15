@@ -1,4 +1,8 @@
-# Parameter help description
+#Deploy metatdata differnce between development branch and master. The repo is cloned in place for this.
+#-org parameter is org alias in CLI.
+#-branch is name of the git branch to deploy.
+#-code is the folder that contain metadata in the repo.
+
 Param([string] $org="efadev", [string] $branch="development", [string] $code="src")
 
 $location = Get-Location
