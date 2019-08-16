@@ -18,33 +18,35 @@ def retrive_and_extract(deploydir,orgname,outputdir='tmpdir'):
 def remove_cms_references(nddir):
     """Remove CMS references from Aura and Classes"""
     aurapath = os.path.join(nddir,'aura')
-    auradirs = os.listdir(aurapath)
-    for aura in auradirs:
-        cmppath = os.path.join(aurapath,aura)
-        files = os.listdir(cmppath)
-        for afile in files:
-            if '.cmp' in afile:
-                with open(os.path.join(cmppath,afile), 'r') as f:
-                    dataf = f.read()
-                if 'DiageoCMS:' in dataf:
-                    print(afile)
-                    datan = dataf.replace('DiageoCMS:','c:')
-                    os.remove(os.path.join(cmppath,afile))
-                    with open(os.path.join(cmppath,afile), 'w') as f:
-                        f.write(datan)
+    if os.path.exists(aurapath):
+        auradirs = os.listdir(aurapath)
+        for aura in auradirs:
+            cmppath = os.path.join(aurapath,aura)
+            files = os.listdir(cmppath)
+            for afile in files:
+                if '.cmp' in afile:
+                    with open(os.path.join(cmppath,afile), 'r') as f:
+                        dataf = f.read()
+                    if 'DiageoCMS:' in dataf:
+                        print(afile)
+                        datan = dataf.replace('DiageoCMS:','c:')
+                        os.remove(os.path.join(cmppath,afile))
+                        with open(os.path.join(cmppath,afile), 'w') as f:
+                            f.write(datan)
     classpath = os.path.join(nddir,'classes')
-    classes = os.listdir(classpath)
-    for aclass in classes:
-        if '-meta.xml' not in aclass:
-            with open(os.path.join(classpath,aclass),'r') as f:
-                dataf = f.read()
-            if 'DiageoCMS__' or 'DiageoCMS.' in dataf:
-                print(aclass)
-                datan = dataf.replace('DiageoCMS__','')
-                datam = datan.replace('DiageoCMS.','')
-                os.remove(os.path.join(classpath,aclass))
-                with open(os.path.join(classpath,aclass), 'w') as f:
-                    f.write(datam)
+    if os.path.exists(classpath):
+        classes = os.listdir(classpath)
+        for aclass in classes:
+            if '-meta.xml' not in aclass:
+                with open(os.path.join(classpath,aclass),'r') as f:
+                    dataf = f.read()
+                if 'DiageoCMS__' or 'DiageoCMS.' in dataf:
+                    print(aclass)
+                    datan = dataf.replace('DiageoCMS__','')
+                    datam = datan.replace('DiageoCMS.','')
+                    os.remove(os.path.join(classpath,aclass))
+                    with open(os.path.join(classpath,aclass), 'w') as f:
+                        f.write(datam)
 
 
 
