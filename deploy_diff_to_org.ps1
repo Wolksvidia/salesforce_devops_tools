@@ -13,8 +13,8 @@ git clone --branch=$branch git@bitbucket.org:cloudgaia/communities-accelerator.g
 Set-Location -path $repo
 python.exe "$($location)\deploy_diff_to_org.py"
 
-sfdx force:mdapi:deploy -d $code -u $org -w 10
+#sfdx force:mdapi:deploy -d $code -u $org -w 10
 
 Set-Location -Path $location
 
-Remove-Item -Path $repo -Recurse -Force
+#Remove-Item -Path $repo -Recurse -Force
