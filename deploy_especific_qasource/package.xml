@@ -1,50 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>DBA_AchievementsUtil</members>
-        <members>DBA_Card</members>
-        <members>DBA_SavedItemsUtil</members>
-        <members>DBA_ProgressItemsUtil</members>
-        <members>DBA_InvitationItemsUtil</members>
-        <members>DBA_InvitationItemController</members>
-        <members>DBA_ProgressItemController</members>
-        <members>DBA_SavedItemsController</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>DBA_Spacer</members>
-        <members>DBA_GlobalSearchHOC</members>
-        <members>DBA_CMSListHOC</members>
-	    <members>DBA_VerticalCardList</members>
-	    <members>DBA_VerticalCard</members>
-	    <members>DBA_RelatedContent</members>
-	    <members>DBA_ProfileTabsHOC</members>
-	    <members>DBA_ProfileInvitationTabHOC</members>
-	    <members>DBA_ProfileProgressTabHOC</members>
-	    <members>DBA_ProfileSavedTabHOC</members>
-	    <members>DBA_TagSelectorHOC</members>
-	    <members>DBA_CreateTrainingHOC</members>
+	    <members>DBA_MediaDisplayer</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
         <members>CustomLabels</members>
         <name>CustomLabels</name>
-    </types>
-    <types>
-        <members>dbaSearchInput</members>
-        <members>dbaGlobalSearchResults</members>
-        <members>dbaTabItem</members>
-        <members>dbaTabSelector</members>
-        <members>dbaBinaryButton</members>
-        <members>dbaBackendFilter</members>
-        <members>dbaHorizontalCardList</members>
-        <members>dbaHorizontalCard</members>
-        <members>dbaListPagination</members>
-        <members>dbaAchievementsList</members>
-        <members>dbaListPagination</members>
-        <members>dbaTagSelector</members>
-        <members>dbaCreateTraining</members>
-        <name>LightningComponentBundle</name>
     </types>
     <types>
         <members>DefaultTheme</members>
