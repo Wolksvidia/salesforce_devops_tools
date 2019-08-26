@@ -98,12 +98,13 @@ def deploy_mdapi(source,orgname):
     """Deploy metadata, then remove source directory"""
     cmd = 'sfdx force:mdapi:deploy -d ' + source + ' -u ' + orgname + ' -w 10'
     os.system(cmd)
-    shutil.rmtree(source)
+    #shutil.rmtree(source)
 
 
 if __name__ == '__main__':
-    retrive_and_extract('src','edge5')
-    remove_cms_references('src','DiageoCMS')
+    #retrive_and_extract('src','edge5')
+    retrive_and_extract('src','QAsource')
+    #remove_cms_references('src','DiageoCMS')
     #remove_cms_references('src','DiageoCMS','CMSTESTQA')
-    deploy_mdapi('src','QAsource')
+    #deploy_mdapi('src','QAsource')
     #deploy_mdapi('src','TestCMSpackage')
