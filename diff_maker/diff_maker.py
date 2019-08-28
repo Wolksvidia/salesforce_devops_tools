@@ -2,6 +2,7 @@ import os
 import shutil
 import string
 import platform
+import sys
 
 
 """ >> -meta.xml necesario para classes triggers pages
@@ -76,4 +77,6 @@ def build_diff_files(inputdir,outputdir,differ='origin/master',inputfile='diff.t
 
 
 if __name__ == '__main__':
-    build_diff_files('src','CCC')
+    #build_diff_files('src','CCC')
+    args = sys.argv[1:]
+    build_diff_files(args[0], args[1])

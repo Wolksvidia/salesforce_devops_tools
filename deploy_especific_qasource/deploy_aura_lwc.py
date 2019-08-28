@@ -102,9 +102,12 @@ def deploy_mdapi(source,orgname):
 
 
 if __name__ == '__main__':
-    #retrive_and_extract('src','edge5')
-    retrive_and_extract('src','QAsource')
-    #remove_cms_references('src','DiageoCMS')
+    #QASource
+    retrive_and_extract('src','edge5')
+    remove_cms_references('src','DiageoCMS')
+    deploy_mdapi('src','QAsource')
+    
+    #QAsource to test package
+    #retrive_and_extract('src','QAsource')
     #remove_cms_references('src','DiageoCMS','CMSTESTQA')
-    #deploy_mdapi('src','QAsource')
     #deploy_mdapi('src','TestCMSpackage')
