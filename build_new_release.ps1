@@ -22,5 +22,6 @@ git checkout HOTFIX
 git pull origin HOTFIX
 git merge master --no-commit
 git push origin HOTFIX
+git checkout development
 
 Set-Location -Path $location
