@@ -11,13 +11,57 @@ def custom_package_xml_generator(directory, packagename=None, version='45.0', fi
         'applications':'CustomApplication', 'aura':'AuraDefinitionBundle',  'classes':'ApexClass', 'customPermissions':'CustomPermission', 
         'flexipages':'FlexiPage', 'flows':'Flow', 'globalValueSets':'GlobalValueSet', 'labels':'CustomLabels', 'layouts':'Layout',
         'lwc': 'LightningComponentBundle', 'objects':'CustomObject', 'pages':'ApexPage', 'permissionsets':'PermissionSet', 'profiles':'Profile',
-        'staticresources':'StaticResource', 'tabs':'CustomTab', 'triggers':'ApexTrigger' 
+        'staticresources':'StaticResource', 'tabs':'CustomTab', 'triggers':'ApexTrigger', 'contentassets':'ContentAsset', 'pathAssistants':'PathAssistant',
+        'quickActions':'QuickAction', 'remoteSiteSettings':'RemoteSiteSetting', 'workflows':'Workflow'
         }
 
-    """ 
+    """
     Non-implemented Metadata:
-    'ApexComponent', 'CustomMetadata' (needs custom manipulation), 'CustomObjectTranslation','CustomPermission', 'DuplicateRule', 
-    'FlowCategory', 'GlobalValueSetTranslation', 'MatchingRules', 'PathAssistant', 'CompactLayout'
+    'ApexComponent', 'CustomMetadata' (needs custom manipulation), 'CustomObjectTranslation', 'DuplicateRule', 
+    'FlowCategory', 'GlobalValueSetTranslation', 'MatchingRules',
+
+    <types>
+        <name>Dashboard</name>
+        <members>DreamHouse_Dashboards</members>
+        <members>DreamHouse_Dashboards/PwhxKrnFNjvWCIHRklHhRcEIEyIIBm</members> #dentro de la carpeta del dashboard
+    </types>
+    <types>
+        <name>Report</name>
+        <members>DreamHouse_Reports</members>
+        <members>DreamHouse_Reports/Days_on_Market</members>
+        <members>DreamHouse_Reports/Portfolio_Health</members>
+        <members>DreamHouse_Reports/Properties_by_Broker</members>
+    </types>
+
+    Workflow > Add 
+    <types>
+        <name>WorkflowFieldUpdate</name>
+        <members>*</members>
+    </types>
+    <types>
+        <name>WorkflowKnowledgePublish</name>
+        <members>*</members>
+    </types>
+    <types>
+        <name>WorkflowTask</name>
+        <members>*</members>
+    </types>
+    <types>
+        <name>WorkflowAlert</name>
+        <members>*</members>
+    </types>
+    <types>
+        <name>WorkflowSend</name>
+        <members>*</members>
+    </types>
+    <types>
+        <name>WorkflowOutboundMessage</name>
+        <members>*</members>
+    </types>
+    <types>
+        <name>WorkflowRule</name>
+        <members>*</members>
+    </types>
     """
     #read directory structure
     allfields = []
@@ -26,6 +70,7 @@ def custom_package_xml_generator(directory, packagename=None, version='45.0', fi
     allrecordt = []
     allvalidr = []
     all_reg = []
+    allclayout = []
 
     obj_dir = os.path.join(directory,'objects')
 
@@ -59,21 +104,30 @@ def custom_package_xml_generator(directory, packagename=None, version='45.0', fi
                         root_tag = obj.getroot().tag
                         namespaces = root_tag[:root_tag.find('}')+1]
                         reg_name = member[:member.find('.')]
+                        #serch fields
                         fields = obj.findall(namespaces+'fields')
                         for field in fields:
                             allfields.append(reg_name+'.'+field.find(namespaces+'fullName').text)
+                        #serch listviews
                         listviews = obj.findall(namespaces+'listViews')
                         for listview in listviews:
                             alllistv.append(reg_name+'.'+listview.find(namespaces+'fullName').text)
+                        #serach sharingreasons
                         sharingreasons = obj.findall(namespaces+'sharingReasons')
                         for sharing in sharingreasons:
                             allsharingr.append(reg_name+'.'+sharing.find(namespaces+'fullName').text)
+                        #search recordtyps
                         recordtypes = obj.findall(namespaces+'recordTypes')
                         for record in recordtypes:
                             allrecordt.append(reg_name+'.'+record.find(namespaces+'fullName').text)
+                        #search validationrules
                         validrules = obj.findall(namespaces+'validationRules')
                         for valid in validrules:
                             allvalidr.append(reg_name+'.'+valid.find(namespaces+'fullName').text)
+                        #search contactlayouts
+                        listclayouts = obj.findall(namespaces+'listViews')
+                        for listclayout in listclayouts:
+                            allclayout.append(reg_name+'.'+listclayout.find(namespaces+'fullName').text)
 
             #Custom behavior for custom labels
             if mdtype == 'labels':
@@ -89,6 +143,14 @@ def custom_package_xml_generator(directory, packagename=None, version='45.0', fi
         ename = xml.SubElement(etype, 'name')
         ename.text = 'CustomField'
         for field in allfields: 
+            emember = xml.SubElement(etype, 'members')
+            emember.text = str(field)
+            
+    if allclayouts: #ContactLayouts
+        etype = xml.SubElement(root, 'types')
+        ename = xml.SubElement(etype, 'name')
+        ename.text = 'CompactLayout'
+        for field in allclayouts: 
             emember = xml.SubElement(etype, 'members')
             emember.text = str(field)
 
