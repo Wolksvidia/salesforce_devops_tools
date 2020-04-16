@@ -13,7 +13,7 @@ def custom_package_xml_generator(directory, packagename=None, version='45.0', fi
         'lwc': 'LightningComponentBundle', 'objects':'CustomObject', 'pages':'ApexPage', 'permissionsets':'PermissionSet', 'profiles':'Profile',
         'staticresources':'StaticResource', 'tabs':'CustomTab', 'triggers':'ApexTrigger', 'contentassets':'ContentAsset', 'pathAssistants':'PathAssistant',
         'quickActions':'QuickAction', 'remoteSiteSettings':'RemoteSiteSetting', 'workflows':'Workflow', 'dashboards':'Dashboard', 'reports':'Report',
-        
+        'cspTrustedSites':'CspTrustedSite',
         }
 
     """

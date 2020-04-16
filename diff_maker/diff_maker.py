@@ -13,7 +13,7 @@ import sys
 def make_dirtree(fpath, basedir):
     #spliter es / en linux o \\ en windows
     if platform.system() == 'Windows':
-        spliter = '\\'
+        spliter = '\'
     else:
         spliter = '/'
     dtree = basedir
@@ -31,8 +31,8 @@ def make_dirtree(fpath, basedir):
 
 def build_diff_files(inputdir,outputdir,differ='origin/master',inputfile='diff.txt'):
     #seteo del spliter dependiendo del SO
-    cmd = 'git diff --name-status ' + differ + ' >> ' + inputfile
-    out = os.system(cmd)
+    #cmd = 'git diff --name-status ' + differ + ' >> ' + inputfile
+    #out = os.system(cmd)
     ldiff = []
     lfront = []
     ldel = []
@@ -77,6 +77,6 @@ def build_diff_files(inputdir,outputdir,differ='origin/master',inputfile='diff.t
 
 
 if __name__ == '__main__':
-    #build_diff_files('src','CCC')
-    args = sys.argv[1:]
-    build_diff_files(args[0], args[1])
+    build_diff_files('src','CCC')
+    #args = sys.argv[1:]
+    #build_diff_files(args[0], args[1])
