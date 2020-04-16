@@ -1,18 +1,21 @@
-Param([string] $org="sbx_cg", [string] $branch="master")
+Param([string] $org="sbx_cg", [string] $branch="master", [string] $repo="C:\Users\Emiliano Fama\Documents\Repositorios\bitbucket\cg_internal_org",
+[string] $manifest="package.xml")
+
 #Set location of the git project
-Set-Location -path "C:\Users\Emiliano Fama\Documents\Repositorios\bitbucket\cg_internal_org"
+Set-Location -path $repo
 git checkout $branch
 
 #Delete folder
 $location = Get-Location
 $folder = "$($location)\unpackaged"
-Remove-Item -Path $folder -Recurse -Force
+If ((Test-Path $folder) -eq $True) {
+    Remove-Item -Path $folder -Recurse -Force
+}
 
 #Retrieve metadata
-sfdx force:mdapi:retrieve -r $location -u $org -k package.xml
+sfdx force:mdapi:retrieve -r $location -u $org -k $manifest
 
 #Extract metadata 
-Set-Location -path $location 
 $Unzip = New-Object -ComObject Shell.Application
 $FileName = "unpackaged.zip"
 $ZipFile = $Unzip.NameSpace((Get-Location).Path + "\$FileName") 
@@ -26,4 +29,4 @@ Remove-Item -Path $FileName
 $date = Get-Date -Format "dd-MM-yyyy"
 git add .
 git commit -m $date
-git push origin master
+git push origin $branch
