@@ -1,0 +1,37 @@
+# Pipelines para deploy y test del proyecto CMS.
+clone:
+  depth: full
+pipelines:
+  #branches: #These commands run for specific branches unless specified otherwise
+  custom:
+    backup:
+      - step:
+          image: cloudgaia/salesforce-cli-deploy:1.10
+          name: Retrieve and commit metadata
+          script:
+            - if [ -d "./unpackaged" ]; then rm -rf "./unpackaged"; fi
+            - |
+                echo "Authorize CLI"
+                echo $AUTHURL >> authurl
+                sfdx force:auth:sfdxurl:store -f ./authurl -s -a org
+                echo "EndBlock Auth"
+            - sfdx force:mdapi:retrieve -r ./ -u org -k package.xml
+            - unzip unpackaged.zip
+            - rm -rf "./unpackaged.zip"
+            - git add .
+            - git commit -m "$(date +"%m-%d-%Y")"
+            - git push
+
+    backup_old:
+      - step:
+          image: cloudgaia/salesforce-cli-deploy:1.06
+          name: Retrieve and commit metadata
+          script:
+            - if [ -d "./unpackaged" ]; then rm -rf "./unpackaged"; fi
+            - sfdx force:auth:jwt:grant --clientid $CONSUMER_KEY_POD --jwtkeyfile ./assets/server.key --username $USER_NAME_PROD --setalias prod
+            - sfdx force:mdapi:retrieve -r ./ -u prod -k package.xml
+            - unzip unpackaged.zip
+            - rm -rf "./unpackaged.zip"
+            - git add .
+            - git commit -m "$(date +"%m-%d-%Y")"
+            - git push
